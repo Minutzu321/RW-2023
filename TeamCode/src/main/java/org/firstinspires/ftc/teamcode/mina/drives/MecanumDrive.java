@@ -1,13 +1,14 @@
 package org.firstinspires.ftc.teamcode.mina.drives;
 
 
-import org.firstinspires.ftc.teamcode.mina.events.BaseEvent;
-import org.firstinspires.ftc.teamcode.mina.events.ControllerEvent;
+import org.firstinspires.ftc.teamcode.mina.events.RWEvent;
+import org.firstinspires.ftc.teamcode.mina.events.controller.ButonEvent;
+import org.firstinspires.ftc.teamcode.mina.events.controller.ControllerEvent;
 
-public class MecanumDrive implements Drive{
+public class MecanumDrive extends Drive {
 
     public MecanumDrive(){
-
+        super(DriveType.MECANUM);
     }
 
 
@@ -17,9 +18,15 @@ public class MecanumDrive implements Drive{
     }
 
     @Override
-    public void onEvent(BaseEvent event) {
-        if(event.type == BaseEvent.EventType.CONTROLLER){
-            ControllerEvent controllerEvent = (ControllerEvent) event;
+    public void onEvent(RWEvent event) {
+        if(event.eController()){
+            ControllerEvent controllerEvent = event.getControllerEvent();
+            if(controllerEvent.eButon()){
+                ButonEvent butonEvent = controllerEvent.getButonEvent();
+                if(butonEvent.butonType == ButonEvent.ButonType.B){
+
+                }
+            }
         }
     }
 }

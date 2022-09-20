@@ -1,12 +1,21 @@
 package org.firstinspires.ftc.teamcode.mina.drives;
 
-import org.firstinspires.ftc.teamcode.mina.events.BaseEvent;
-import org.firstinspires.ftc.teamcode.mina.events.ControllerEvent;
+import org.firstinspires.ftc.teamcode.mina.events.RWEvent;
 
-public interface Drive {
+public abstract class Drive {
 
-    void onInit();
+    enum DriveType{
+        MECANUM,
+    }
 
-    void onEvent(BaseEvent event);
+    public DriveType driveType;
+
+    public Drive(DriveType driveType){
+        this.driveType = driveType;
+    }
+
+    public abstract void onInit();
+
+    public abstract void onEvent(RWEvent event);
 
 }

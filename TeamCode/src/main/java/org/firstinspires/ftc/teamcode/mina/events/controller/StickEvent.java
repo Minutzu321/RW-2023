@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.mina.events;
+package org.firstinspires.ftc.teamcode.mina.events.controller;
 
 public class StickEvent extends ControllerEvent {
 
@@ -13,6 +13,15 @@ public class StickEvent extends ControllerEvent {
         this.stickType = stickType;
         this.x = x;
         this.y = y;
+    }
+
+    public StickEvent set(Controller controller, StickType stickType, float x, float y){
+        this.controller = controller;
+        this.stickType = stickType;
+        this.x = x;
+        this.y = y;
+
+        return this;
     }
 
     public String getInfo(){

@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.mina.events;
+package org.firstinspires.ftc.teamcode.mina.events.controller;
 
 public class ButonEvent extends ControllerEvent {
 
@@ -14,6 +14,14 @@ public class ButonEvent extends ControllerEvent {
         super(ControllerEventType.BUTON,controller);
         this.butonType = tip;
         this.apasat = apasat;
+    }
+
+    public ButonEvent set(Controller controller, ButonType butonType, boolean apasat) {
+        this.controller = controller;
+        this.butonType = butonType;
+        this.apasat = apasat;
+
+        return this;
     }
 
     public String getInfo(){
