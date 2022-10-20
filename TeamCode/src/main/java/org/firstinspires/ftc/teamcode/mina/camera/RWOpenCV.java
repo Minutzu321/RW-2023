@@ -69,8 +69,6 @@ public class RWOpenCV {
             camera = OpenCvCameraFactory.getInstance().createWebcam(RWConfig.webcamName);
         }
 
-        camera.setPipeline(new ConDetectorPipeline());
-
         camera.openCameraDeviceAsync(new OpenCvCamera.AsyncCameraOpenListener()
         {
             @Override
