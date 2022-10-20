@@ -92,6 +92,12 @@ public class RWOpenCV {
             if(pipeType == RWPipeType.NULL){
                 camera.setPipeline(null);
             }
+            if(pipeType == RWPipeType.CON){
+                camera.setPipeline(conDetectorPipeline);
+            }
+            if(pipeType == RWPipeType.TAG){
+                camera.setPipeline(aprilTagDetectorPipeline);
+            }
         }
     }
 
