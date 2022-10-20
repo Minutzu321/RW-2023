@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.mina.events;
 
-import org.firstinspires.ftc.teamcode.mina.Robot;
+import org.firstinspires.ftc.teamcode.mina.RWConfig;
+import org.firstinspires.ftc.teamcode.mina.RWRobot;
 import org.firstinspires.ftc.teamcode.mina.drives.Drive;
 import org.firstinspires.ftc.teamcode.mina.events.controller.ControllerEvent;
 
@@ -19,7 +20,10 @@ public abstract class RWEvent {
     }
 
     public void execute(){
-        for(Drive d : Robot.drives){
+        if(RWConfig.DEBUG && eController()){
+            RWRobot.telemetry.addData("event", getControllerEvent().getInfo());
+        }
+        for(Drive d : RWRobot.drives){
             d.onEvent(this);
         }
     }

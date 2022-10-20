@@ -24,6 +24,39 @@ public class ButonEvent extends ControllerEvent {
         return this;
     }
 
+    public boolean eA(){
+        return butonType == ButonType.A;
+    }
+    public boolean eB(){
+        return butonType == ButonType.B;
+    }
+    public boolean eX(){
+        return butonType == ButonType.X;
+    }
+    public boolean eY(){
+        return butonType == ButonType.Y;
+    }
+
+    public boolean eD_STANGA(){
+        return butonType == ButonType.D_STANGA;
+    }
+    public boolean eD_DREAPTA(){
+        return butonType == ButonType.D_DREAPTA;
+    }
+    public boolean eD_SUS(){
+        return butonType == ButonType.D_SUS;
+    }
+    public boolean eD_JOS(){
+        return butonType == ButonType.D_JOS;
+    }
+
+    public boolean eSTANGA_BUMPER(){
+        return butonType == ButonType.STANGA_BUMPER;
+    }
+    public boolean eDREAPTA_BUMPER(){
+        return butonType == ButonType.DREAPTA_BUMPER;
+    }
+
     public String getInfo(){
         return butonType.toString()+" - "+apasat;
     }

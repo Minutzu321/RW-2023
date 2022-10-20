@@ -22,7 +22,7 @@ public abstract class ControllerEvent extends RWEvent {
         this.controller = controller;
     }
 
-    abstract String getInfo();
+    public abstract String getInfo();
 
     public boolean eButon(){
         return controllereventtype == ControllerEventType.BUTON;
@@ -49,5 +49,11 @@ public abstract class ControllerEvent extends RWEvent {
     }
 
 
+    public boolean eController1(){
+        return controller == Controller.CONTROLLER1;
+    }
+    public boolean eController2(){
+        return controller == Controller.CONTROLLER2;
+    }
 
 }

@@ -24,6 +24,13 @@ public class StickEvent extends ControllerEvent {
         return this;
     }
 
+    public boolean eSTANGA(){
+        return stickType == StickType.STANGA;
+    }
+    public boolean eDREAPTA(){
+        return stickType == StickType.DREAPTA;
+    }
+
     public String getInfo(){
         return stickType.toString()+" - "+x+" - "+y;
     }

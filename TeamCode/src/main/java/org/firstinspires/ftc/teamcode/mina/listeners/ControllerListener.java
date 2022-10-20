@@ -2,7 +2,7 @@ package org.firstinspires.ftc.teamcode.mina.listeners;
 
 import com.qualcomm.robotcore.hardware.Gamepad;
 
-import org.firstinspires.ftc.teamcode.mina.Robot;
+import org.firstinspires.ftc.teamcode.mina.RWRobot;
 import org.firstinspires.ftc.teamcode.mina.events.controller.ButonEvent;
 import org.firstinspires.ftc.teamcode.mina.events.controller.ControllerEvent;
 import org.firstinspires.ftc.teamcode.mina.events.controller.StickEvent;
@@ -10,7 +10,7 @@ import org.firstinspires.ftc.teamcode.mina.events.controller.TriggerEvent;
 
 public class ControllerListener {
 
-    public static Gamepad gamepad1= Robot.opMode.gamepad1,gamepad2=Robot.opMode.gamepad2;
+    public static Gamepad gamepad1= RWRobot.opMode.gamepad1,gamepad2= RWRobot.opMode.gamepad2;
 
     private static boolean a1=false, a2=false,
                            b1=false, b2=false,
@@ -30,7 +30,7 @@ public class ControllerListener {
                          lt1=0, lt2=0,
                          rt1=0, rt2=0;
 
-    private static final ButonEvent butonEvent = new ButonEvent(ControllerEvent.Controller.CONTROLLER1, ButonEvent.ButonType.A, false);
+    private static ButonEvent butonEvent = new ButonEvent(ControllerEvent.Controller.CONTROLLER1, ButonEvent.ButonType.A, false);
     private static StickEvent stickEvent = new StickEvent(ControllerEvent.Controller.CONTROLLER1, StickEvent.StickType.STANGA, 0, 0);
     private static TriggerEvent triggerEvent = new TriggerEvent(ControllerEvent.Controller.CONTROLLER1, TriggerEvent.TriggerType.DREAPTA_TRIGGER, 0);
 

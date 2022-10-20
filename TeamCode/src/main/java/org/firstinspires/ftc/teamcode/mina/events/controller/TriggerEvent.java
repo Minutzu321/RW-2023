@@ -23,6 +23,13 @@ public class TriggerEvent extends ControllerEvent {
         return this;
     }
 
+    public boolean eSTANGA(){
+        return triggerType == TriggerType.STANGA_TRIGGER;
+    }
+    public boolean eDREAPTA(){
+        return triggerType == TriggerType.DREAPTA_TRIGGER;
+    }
+
     public String getInfo(){
         return triggerType.toString()+" - "+v;
     }

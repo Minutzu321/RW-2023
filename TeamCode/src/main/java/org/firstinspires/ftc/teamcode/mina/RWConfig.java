@@ -1,18 +1,25 @@
 package org.firstinspires.ftc.teamcode.mina;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+
 public class RWConfig {
+
+    public static boolean DEBUG = true;
+    public static boolean OPENCV_IN_CONTROL = false;
 
     public static DcMotorEx ss,sf,ds,df;
     public static BNO055IMU imu;
+    public static WebcamName webcamName;
 
 
     public static void init(){
-        HardwareMap hardwareMap = Robot.opMode.hardwareMap;
+        HardwareMap hardwareMap = RWRobot.opMode.hardwareMap;
+
+        webcamName = hardwareMap.get(WebcamName.class, "webcam");
 
         ss = (DcMotorEx) hardwareMap.get("ss");
         sf = (DcMotorEx) hardwareMap.get("sf");
