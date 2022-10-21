@@ -8,13 +8,17 @@ import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 
 public class RWConfig {
 
-    public static boolean DEBUG = true;
-    public static boolean OPENCV_IN_CONTROL = false;
+    public static final boolean DEBUG = true;
+    public static final boolean OPENCV_IN_CONTROL = false;
+    public static final int SECTIUNEA_1 = 10,
+                            SECTIUNEA_2 = 11,
+                            SECTIUNEA_3 = 12;
+
+    public static boolean INCEPUT = false;
 
     public static DcMotorEx ss,sf,ds,df;
     public static BNO055IMU imu;
     public static WebcamName webcamName;
-
 
     public static void init(){
         HardwareMap hardwareMap = RWRobot.opMode.hardwareMap;

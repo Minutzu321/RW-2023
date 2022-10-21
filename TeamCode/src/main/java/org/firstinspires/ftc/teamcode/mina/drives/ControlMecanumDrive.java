@@ -8,11 +8,11 @@ import org.firstinspires.ftc.teamcode.mina.events.RWEvent;
 import org.firstinspires.ftc.teamcode.mina.events.controller.ControllerEvent;
 import org.firstinspires.ftc.teamcode.mina.events.controller.StickEvent;
 
-public class MecanumDrive extends Drive {
+public class ControlMecanumDrive extends Drive {
 
     public float x, y, r;
 
-    public MecanumDrive(){
+    public ControlMecanumDrive(){
         super(DriveType.MECANUM);
     }
 

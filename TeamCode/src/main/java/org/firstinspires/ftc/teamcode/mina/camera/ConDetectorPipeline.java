@@ -52,8 +52,7 @@ public class ConDetectorPipeline extends OpenCvPipeline {
             Imgproc.approxPolyDP(new MatOfPoint2f(contururi.get(i).toArray()), contururiPoly[i], 3.0, true);
             detectii[i] = Imgproc.boundingRect(new MatOfPoint(contururiPoly[i].toArray()));
         }
-        synchronized (detectionsUpdateSync)
-        {
+        synchronized (detectionsUpdateSync) {
             detectiiUpdate = detectii;
         }
         return input;
@@ -67,8 +66,7 @@ public class ConDetectorPipeline extends OpenCvPipeline {
 
     public Rect[] getDetectionsUpdate()
     {
-        synchronized (detectionsUpdateSync)
-        {
+        synchronized (detectionsUpdateSync) {
             Rect[] ret = detectiiUpdate;
             detectiiUpdate = null;
             return ret;

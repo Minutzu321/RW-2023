@@ -7,7 +7,7 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.mina.camera.RWOpenCV;
 import org.firstinspires.ftc.teamcode.mina.drives.Drive;
-import org.firstinspires.ftc.teamcode.mina.drives.MecanumDrive;
+import org.firstinspires.ftc.teamcode.mina.drives.ControlMecanumDrive;
 import org.firstinspires.ftc.teamcode.mina.events.StartEvent;
 import org.firstinspires.ftc.teamcode.mina.events.StopEvent;
 import org.firstinspires.ftc.teamcode.mina.listeners.ControllerListener;
@@ -39,7 +39,7 @@ public class RWRobot {
 
         mecanumDrive = new SampleMecanumDrive(opMode.hardwareMap);
 
-        drives.add(new MecanumDrive());
+        drives.add(new ControlMecanumDrive());
 
         for(Drive d : drives){
             d.onInit();
@@ -48,10 +48,13 @@ public class RWRobot {
 
     public static void start(){
         new StartEvent(startType).execute();
+        RWConfig.INCEPUT = true;
     }
 
     public static void stop(){
         new StopEvent().execute();
+        RWConfig.INCEPUT = false;
+        RWOpenCV.stop();
     }
 
     public static void update(){
@@ -60,7 +63,10 @@ public class RWRobot {
         ControllerListener.update();
 
         for(Telemetrie t: telemetrii){
-            telemetry.addData(t.getTelType()+" "+t.getTitlu(),t.getMesaj());
+            for(String linie : t.getMesaj()){
+                telemetry.addLine(t.getTelType()+" "+t.getTitlu()+": "+linie);
+            }
+            telemetry.addLine();
         }
         telemetry.update();
     }

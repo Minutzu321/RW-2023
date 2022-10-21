@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.mina.utils;
 import org.firstinspires.ftc.teamcode.mina.RWConfig;
 import org.firstinspires.ftc.teamcode.mina.RWRobot;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Telemetrie {
@@ -12,12 +13,20 @@ public class Telemetrie {
     }
 
     private TelType telType;
-    private String titlu, mesaj;
+    private String titlu;
+
+    private List<String> linii;
+
+    public Telemetrie(TelType telType, String titlu, List<String> linii){
+        this.telType = telType;
+        this.titlu = titlu;
+        this.linii = linii;
+    }
 
     public Telemetrie(TelType telType, String titlu, String mesaj){
         this.telType = telType;
         this.titlu = titlu;
-        this.mesaj = mesaj;
+        this.linii.add(mesaj);
     }
 
     public TelType getTelType() {
@@ -28,12 +37,12 @@ public class Telemetrie {
         return titlu;
     }
 
-    public String getMesaj() {
-        return mesaj;
+    public List<String> getMesaj() {
+        return linii;
     }
 
-    public void setMesaj(String mesaj){
-        this.mesaj = mesaj;
+    public void setLinii(List<String> linii){
+        this.linii = linii;
     }
 
     public void setTelType(TelType telType){
@@ -41,7 +50,7 @@ public class Telemetrie {
     }
 
 
-    public static void addTel(Telemetrie.TelType tt, String titlu, String mesaj){
+    public static void addTel(Telemetrie.TelType tt, String titlu, List<String> linii){
         int t = -1;
         for (int i = 0; i < RWRobot.telemetrii.size(); i++){
             if(RWRobot.telemetrii.get(i).getTitlu().equals(titlu)){
@@ -51,14 +60,27 @@ public class Telemetrie {
         }
         if(t != -1){
             RWRobot.telemetrii.get(t).setTelType(tt);
-            RWRobot.telemetrii.get(t).setMesaj(mesaj);
+            RWRobot.telemetrii.get(t).setLinii(linii);
         }else{
-            RWRobot.telemetrii.add(new Telemetrie(tt, titlu, mesaj));
+            RWRobot.telemetrii.add(new Telemetrie(tt, titlu, linii));
         }
         sortTel();
     }
+
+    public static void addTel(String titlu, List<String> lista){
+        addTel(TelType.INFO, titlu, lista);
+    }
+
+    public static void addTel(TelType tt, String titlu, String mesaj){
+        List<String> lista = new ArrayList<>();
+        lista.add(mesaj);
+        addTel(tt, titlu, lista);
+    }
+
     public static void addTel(String titlu, String mesaj){
-        addTel(TelType.INFO, titlu, mesaj);
+        List<String> lista = new ArrayList<>();
+        lista.add(mesaj);
+        addTel(TelType.INFO, titlu, lista);
     }
 
     private static void sortTel(){

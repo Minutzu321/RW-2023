@@ -4,13 +4,16 @@ import org.firstinspires.ftc.teamcode.mina.RWConfig;
 import org.firstinspires.ftc.teamcode.mina.RWRobot;
 import org.firstinspires.ftc.teamcode.mina.drives.Drive;
 import org.firstinspires.ftc.teamcode.mina.events.controller.ControllerEvent;
+import org.firstinspires.ftc.teamcode.mina.events.opencv.RecogEvent;
+import org.firstinspires.ftc.teamcode.mina.utils.Telemetrie;
 
 public abstract class RWEvent {
 
     public enum EventType{
         START,
         STOP,
-        CONTROLLER
+        CONTROLLER,
+        RECOG,
     }
 
     public EventType type;
@@ -20,8 +23,13 @@ public abstract class RWEvent {
     }
 
     public void execute(){
+        if(!RWConfig.INCEPUT)
+            return;
         if(RWConfig.DEBUG && eController()){
-            RWRobot.telemetry.addData("event", getControllerEvent().getInfo());
+            Telemetrie.addTel("c-event", getControllerEvent().getInfo());
+        }
+        if(RWConfig.DEBUG && eRecog()){
+            Telemetrie.addTel("r-event", getRecogEvent().getInfo());
         }
         for(Drive d : RWRobot.drives){
             d.onEvent(this);
@@ -40,8 +48,15 @@ public abstract class RWEvent {
         return type == EventType.CONTROLLER;
     }
 
+    public boolean eRecog() {
+        return type == EventType.RECOG;
+    }
+
     public ControllerEvent getControllerEvent(){
         return (ControllerEvent) this;
+    }
+    public RecogEvent getRecogEvent(){
+        return (RecogEvent) this;
     }
 
 }
