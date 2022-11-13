@@ -4,10 +4,11 @@ Acesta este un SDK customizat construit pe baza SDK-ului de la FTC, cu rolul de 
 
 
 
-## Exemple / Cum se foloseste
+## Cum fac un Drive / Exemplu Drive
 Partea principala a codului este Drive-ul.
 Un "Drive" reprezinta o parte functionala a robotului.
 
+### Tutorial pas cu pas
 **Cum fac un Drive??**\
 Pentru a face un "Drive", trebuie urmati 3 pasi principali:
 
@@ -17,10 +18,10 @@ Pentru a face un "Drive", trebuie urmati 3 pasi principali:
 Cautam secventa asta de cod in clasa mentionata mai sus
 ```java
 //Adauga numele noului tau drive
-    enum DriveType{
-        MECANUM,
-        //AICI ADAUGI NUMELE
-    }
+enum DriveType{
+    MECANUM,
+    //AICI ADAUGI NUMELE
+}
 ```
 si adaugam un nume care va reprezenta drive-ul nostru\
 In cazul meu, numele este **EXEMPLU**
@@ -29,11 +30,11 @@ In cazul meu, numele este **EXEMPLU**
 *Rezultat:*
 ```java
 //Adauga numele noului tau drive
-    enum DriveType{
-        MECANUM,
-        EXEMPLU,
-        //AICI ADAUGI NUMELE
-    }
+enum DriveType{
+    MECANUM,
+    EXEMPLU,
+    //AICI ADAUGI ALT NUME
+}
 ```
 Acum practic ce am facut a fost sa adaugam inca o posibilitate de drive\
 
@@ -85,7 +86,8 @@ In cazul meu, este ```drives.add(new ExempluDrive());```
 drives.add(new ControlMecanumDrive());
 drives.add(new ExempluDrive());
 ```
-
+Ce a facut ultimul pas a fost sa adauge Drive-ul pe lista care este updatata de programul principal.\
+Fara acest pas, clasa noastra nu este luata in considerare cand se intampla un event sau se initializeaza robotul.
 ### Exemplu
 Un exemplu este drive-ul pentru roti, numit **ControlMecanumDrive**
 ```java
