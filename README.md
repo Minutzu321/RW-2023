@@ -17,7 +17,7 @@ Un "Drive" reprezinta o parte functionala a robotului.
 **Cum fac un Drive??**\
 Pentru a face un "Drive", trebuie urmati 3 pasi principali:
 
-** :white_check_mark: Pasul 1 - Adauga un nou tip de drive in clasa Drive**\
+:white_check_mark:**Pasul 1 - Adauga un nou tip de drive in clasa Drive**\
 *Locatia clasei: 'org.firstinspires.ftc.teamcode.mina.drives.Drive'*\
 [Click pentru locatie](https://github.com/Minutzu321/RW-2023/blob/e1d5873c4ee91f2fa9173ecd605cee3647ec1929/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mina/drives/Drive.java#L10)
 
@@ -91,7 +91,7 @@ In cazul meu, este ```drives.add(new ExempluDrive());```
 ```java
 //ADAUGATI AICI DRIVERELE PE CARE LE CREATI
 drives.add(new ControlMecanumDrive());
-        drives.add(new ExempluDrive());
+drives.add(new ExempluDrive());
 ```
 Ce a facut ultimul pas a fost sa adauge Drive-ul pe lista care este updatata de programul principal.\
 Fara acest pas, clasa noastra nu este luata in considerare cand se intampla un event sau se initializeaza robotul.
@@ -103,8 +103,8 @@ Un exemplu este drive-ul pentru roti, numit **ControlMecanumDrive**
 [Click pentru locatie](https://github.com/Minutzu321/RW-2023/blob/e1d5873c4ee91f2fa9173ecd605cee3647ec1929/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mina/drives/Drive.java#L9)
 ```java
 enum DriveType{
-  MECANUM,
-  //AICI ADAUGI ALT NUME
+    MECANUM,
+    //AICI ADAUGI ALT NUME
 }
 ```
 
