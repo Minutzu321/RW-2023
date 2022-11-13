@@ -4,11 +4,90 @@ Acesta este un SDK customizat construit pe baza SDK-ului de la FTC, cu rolul de 
 
 
 
-
 ## Exemple / Cum se foloseste
-Partea principala a codului este Drive-ul.\
-Un "Drive" reprezinta o parte functionala a robotului.\
-Un exemplu este drive-ul pentru roi, numit **ControlMecanumDrive**
+Partea principala a codului este Drive-ul.
+Un "Drive" reprezinta o parte functionala a robotului.
+
+**Cum fac un Drive??**\
+Pentru a face un "Drive", trebuie urmati 3 pasi principali:
+
+**Pasul 1 - Adauga un nou tip de drive in clasa Drive**\
+*Locatia clasei: 'org.firstinspires.ftc.teamcode.mina.drives.Drive'*
+
+Cautam secventa asta de cod in clasa mentionata mai sus
+```java
+//Adauga numele noului tau drive
+    enum DriveType{
+        MECANUM,
+        //AICI ADAUGI NUMELE
+    }
+```
+si adaugam un nume care va reprezenta drive-ul nostru\
+In cazul meu, numele este **EXEMPLU**
+
+
+*Rezultat:*
+```java
+//Adauga numele noului tau drive
+    enum DriveType{
+        MECANUM,
+        EXEMPLU,
+        //AICI ADAUGI NUMELE
+    }
+```
+Acum practic ce am facut a fost sa adaugam inca o posibilitate de drive\
+
+**Pasul 2 - Creaza o clasa extinsa la Drive**\
+In constructorul clasei este functia '*super()*' careia trebuie sa ii zici ce tip de "Drive" este clasa.
+In cazul meu, tipul drive-ului este cel adaugat la pasul anterior, si anume '*DriveType.EXEMPLU*'
+
+```java
+package org.firstinspires.ftc.teamcode.mina.drives;
+
+import org.firstinspires.ftc.teamcode.mina.events.RWEvent;
+
+public class ExempluDrive extends Drive {
+
+    public ExempluDrive() {
+        //Aici argumentul de la super() trebuie sa fie numele
+        //pe care l-ai adaugat in pasul anterior
+        super(DriveType.EXEMPLU);
+    }
+
+    @Override
+    public void onInit() {
+        //Functia asta se cheama cand se apasa butonul de INIT
+        //Aici initializezi variabilele
+    }
+
+    @Override
+    public void onEvent(RWEvent event) {
+        //Functia asta se cheama cand se observa
+        //un event de catre Listeneri
+    }
+}
+```
+**Pasul 3 - Inregistreaza clasa in RWRobot**\
+*Locatia clasei: 'org.firstinspires.ftc.teamcode.mina.RWRobot'*\
+*Secventa de cod este in functia **init** din RWRobot*
+
+Cautam secventa asta folosind instructiunile date mai sus
+```java
+//ADAUGATI AICI DRIVERELE PE CARE LE CREATI
+drives.add(new ControlMecanumDrive());
+```
+si adaugam noua clasa folosind acelasi procedeu ca in secventa.\
+In cazul meu, este ```drives.add(new ExempluDrive());```
+
+*Rezultat:*
+```java
+//ADAUGATI AICI DRIVERELE PE CARE LE CREATI
+drives.add(new ControlMecanumDrive());
+drives.add(new ExempluDrive());
+```
+
+### Exemplu
+Un exemplu este drive-ul pentru roti, numit **ControlMecanumDrive**
 ```java
 package org.firstinspires.ftc.teamcode.mina.drives;
 
