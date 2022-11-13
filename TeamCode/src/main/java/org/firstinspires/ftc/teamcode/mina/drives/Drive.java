@@ -7,8 +7,7 @@ public abstract class Drive {
     //Adauga numele noului tau drive
     enum DriveType{
         MECANUM,
-        EXEMPLU,
-        //AICI ADAUGI NUMELE
+        //AICI ADAUGI ALT NUME
     }
 
     public DriveType driveType;
