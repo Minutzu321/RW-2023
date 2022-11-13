@@ -84,12 +84,12 @@ In cazul meu, este ```drives.add(new ExempluDrive());```
 ```java
 //ADAUGATI AICI DRIVERELE PE CARE LE CREATI
 drives.add(new ControlMecanumDrive());
-        drives.add(new ExempluDrive());
+drives.add(new ExempluDrive());
 ```
 Ce a facut ultimul pas a fost sa adauge Drive-ul pe lista care este updatata de programul principal.\
 Fara acest pas, clasa noastra nu este luata in considerare cand se intampla un event sau se initializeaza robotul.
-### Exemplu
-Un exemplu este drive-ul pentru roti, numit **ControlMecanumDrive**
+### Exemplu din cod
+Un exemplu folosit in cod este drive-ul pentru roti, numit **ControlMecanumDrive**
 
 *Pasul 1*\
 *Locatie: **org.firstinspires.ftc.teamcode.mina.drives.Drive***
