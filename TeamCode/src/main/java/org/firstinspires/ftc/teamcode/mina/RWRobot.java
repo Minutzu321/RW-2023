@@ -19,7 +19,6 @@ import java.util.List;
 public class RWRobot {
 
     public static OpMode opMode;
-    public static Telemetry telemetry;
 
     public static List<Drive> drives;
     public static SampleMecanumDrive mecanumDrive = null;
@@ -30,7 +29,6 @@ public class RWRobot {
 
     public static void init(OpMode mode, StartEvent.StartType startType1){
         opMode = mode;
-        telemetry = mode.telemetry;
         startType = startType1;
         drives = new ArrayList<>();
 
@@ -65,11 +63,11 @@ public class RWRobot {
 
         for(Telemetrie t: telemetrii){
             for(String linie : t.getMesaj()){
-                telemetry.addLine(t.getTelType()+" "+t.getTitlu()+": "+linie);
+                opMode.telemetry.addLine(t.getTelType()+" "+t.getTitlu()+": "+linie);
             }
-            telemetry.addLine();
+            opMode.telemetry.addLine();
         }
-        telemetry.update();
+        opMode.telemetry.update();
     }
 
 
@@ -83,12 +81,12 @@ public class RWRobot {
         init(lop, startType);
         //anuntam daca modeul DEBUG e activat
         if(RWConfig.DEBUG){
-            telemetry.addLine("ATENTIE!");
-            telemetry.addLine("MODUL DEBUG ESTE ACTIVAT");
-            telemetry.addLine("ACESTA POATE PRODUCE LAG/DELAY LA ROBOT");
-            telemetry.addLine("DACA CONDUCETI ROBOTUL IN COMPETITIE, DEZACTIVATI MODUL DEBUG!!!");
-            telemetry.addLine("ACESTA SE AFLA IN RWConfig.java");
-            telemetry.update();
+            opMode.telemetry.addLine("ATENTIE!");
+            opMode.telemetry.addLine("MODUL DEBUG ESTE ACTIVAT");
+            opMode.telemetry.addLine("ACESTA POATE PRODUCE LAG/DELAY LA ROBOT");
+            opMode.telemetry.addLine("DACA CONDUCETI ROBOTUL IN COMPETITIE, DEZACTIVATI MODUL DEBUG!!!");
+            opMode.telemetry.addLine("ACESTA SE AFLA IN RWConfig.java");
+            opMode.telemetry.update();
         }
         //asteptam sa se apese butonul de start
         lop.waitForStart();

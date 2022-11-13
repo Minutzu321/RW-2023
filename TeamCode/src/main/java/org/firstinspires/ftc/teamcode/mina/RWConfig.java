@@ -6,19 +6,28 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.teamcode.mina.utils.Telemetrie;
 
 public class RWConfig {
 
+    //Modul DEBUG activat
     public static final boolean DEBUG = true;
+    //Daca OPENCV-ul sa se activeze cand robotul este in TELEOP
     public static final boolean OPENCV_IN_CONTROL = false;
+
+    //ID-urile de la AprilTaguri corespunzatoare fiecarei zone de parcat
     public static final int SECTIUNEA_1 = 10,
                             SECTIUNEA_2 = 11,
                             SECTIUNEA_3 = 12;
 
+    //Daca jocul a inceput
     public static boolean INCEPUT = false;
 
-    public static DcMotorEx ss,sf,ds,df;
+    //Motoarele pentru roti
+    public static DcMotorEx ss, sf, ds, df;
+    //Giroscopul
     public static BNO055IMU imu;
+    //Camera USB
     public static WebcamName webcamName;
 
     public static void init(){
