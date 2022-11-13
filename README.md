@@ -22,13 +22,17 @@ import org.firstinspires.ftc.teamcode.mina.events.controller.StickEvent;
 
 public class ControlMecanumDrive extends Drive {
 
+    //Variabilele pentru puteri
     public float x, y, r;
 
+    //Constructorul clasei
+    //Trebuie pasat mereu tipul Driveului
+    //se gaseste in clasa Drive din packageul drives
     public ControlMecanumDrive() {
         super(DriveType.MECANUM);
     }
 
-
+    //Aici te asiguri ca totul este pregatit cand se apasa pe butonul de init
     @Override
     public void onInit() {
         x = 0;
@@ -36,6 +40,8 @@ public class ControlMecanumDrive extends Drive {
         r = 0;
     }
 
+    //Aici este functia centrala.
+    //Prin ea se paseaza evenimentele detectate de listeneri
     @Override
     public void onEvent(RWEvent event) {
         StickEvent stickEvent = event.getStickEvent();
