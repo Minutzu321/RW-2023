@@ -36,7 +36,7 @@ enum DriveType{
     //AICI ADAUGI ALT NUME
 }
 ```
-Acum practic ce am facut a fost sa adaugam inca o posibilitate de drive\
+Acum practic ce am facut a fost sa adaugam inca o posibilitate de drive
 
 **Pasul 2 - Creaza o clasa extinsa la Drive**\
 In constructorul clasei este functia '*super()*' careia trebuie sa ii zici ce tip de "Drive" este clasa.
