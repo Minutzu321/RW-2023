@@ -12,7 +12,7 @@ Acesta este un SDK customizat construit pe baza SDK-ului de la FTC, cu rolul de 
 
 
 
-:interrobang:## Cum fac un Drive / Exemplu Drive
+##:interrobang:Cum fac un Drive / Exemplu Drive
 Partea principala a codului este Drive-ul.
 Un "Drive" reprezinta o parte functionala a robotului.
 
