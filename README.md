@@ -16,7 +16,7 @@ Acesta este un SDK customizat construit pe baza SDK-ului de la FTC, cu rolul de 
 Partea principala a codului este Drive-ul.
 Un "Drive" reprezinta o parte functionala a robotului.
 
-:star:### Tutorial pas cu pas
+### :star: Tutorial pas cu pas
 **Cum fac un Drive??**\
 Pentru a face un "Drive", trebuie urmati 3 pasi principali:
 
@@ -47,7 +47,7 @@ enum DriveType{
 ```
 Acum practic ce am facut a fost sa adaugam inca o posibilitate de drive
 
-**Pasul 2 - Creaza o clasa extinsa la Drive**\
+:white_check_mark:**Pasul 2 - Creaza o clasa extinsa la Drive**\
 In constructorul clasei este functia '*super()*' careia trebuie sa ii zici ce tip de "Drive" este clasa.
 In cazul meu, tipul drive-ului este cel adaugat la pasul anterior, si anume '*DriveType.EXEMPLU*'
 
@@ -77,7 +77,7 @@ public class ExempluDrive extends Drive {
     }
 }
 ```
-**Pasul 3 - Inregistreaza clasa in RWRobot**\
+:white_check_mark:**Pasul 3 - Inregistreaza clasa in RWRobot**\
 *Locatia clasei: 'org.firstinspires.ftc.teamcode.mina.RWRobot'*\
 *Secventa de cod este in functia **init** din RWRobot*\
 [Click pentru locatie](https://github.com/Minutzu321/RW-2023/blob/e1d5873c4ee91f2fa9173ecd605cee3647ec1929/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mina/RWRobot.java#L44)
@@ -101,7 +101,7 @@ Fara acest pas, clasa noastra nu este luata in considerare cand se intampla un e
 :star2:### Exemplu cod Drive
 Un exemplu este drive-ul pentru roti, numit **ControlMecanumDrive**
 
-*Pasul 1*\
+:white_check_mark:*Pasul 1*\
 *Locatie: **org.firstinspires.ftc.teamcode.mina.drives.Drive***\
 [Click pentru locatie](https://github.com/Minutzu321/RW-2023/blob/e1d5873c4ee91f2fa9173ecd605cee3647ec1929/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mina/drives/Drive.java#L9)
 ```java
@@ -111,7 +111,7 @@ enum DriveType{
 }
 ```
 
-*Pasul 2*\
+:white_check_mark:*Pasul 2*\
 *Locatie: **org.firstinspires.ftc.teamcode.mina.drives.ControlMecanumDrive***
 ```java
 package org.firstinspires.ftc.teamcode.mina.drives;
@@ -167,7 +167,7 @@ public class ControlMecanumDrive extends Drive {
 }
 ```
 
-*Pasul 3*\
+:white_check_mark:*Pasul 3*\
 *Locatie: **org.firstinspires.ftc.teamcode.mina.RWRobot***\
 [Click pentru locatie](https://github.com/Minutzu321/RW-2023/blob/b530e5d63ed20db44ad23866aac2b11731ae83aa/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mina/RWRobot.java#L43)
 ```java
