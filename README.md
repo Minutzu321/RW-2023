@@ -9,11 +9,14 @@ Acesta este un SDK customizat construit pe baza SDK-ului de la FTC, cu rolul de 
 - [Drive](https://github.com/Minutzu321/RW-2023#cum-fac-un-drive--exemplu-drive)
   - [Cum fac un drive](https://github.com/Minutzu321/RW-2023#tutorial-pas-cu-pas)
   - [Exemplu](https://github.com/Minutzu321/RW-2023#exemplu-cod-drive)
-## Cum fac un Drive / Exemplu Drive
+
+
+
+:interrobang:## Cum fac un Drive / Exemplu Drive
 Partea principala a codului este Drive-ul.
 Un "Drive" reprezinta o parte functionala a robotului.
 
-### Tutorial pas cu pas
+:star:### Tutorial pas cu pas
 **Cum fac un Drive??**\
 Pentru a face un "Drive", trebuie urmati 3 pasi principali:
 
@@ -95,7 +98,7 @@ drives.add(new ExempluDrive());
 ```
 Ce a facut ultimul pas a fost sa adauge Drive-ul pe lista care este updatata de programul principal.\
 Fara acest pas, clasa noastra nu este luata in considerare cand se intampla un event sau se initializeaza robotul.
-### Exemplu cod Drive
+:star2:### Exemplu cod Drive
 Un exemplu este drive-ul pentru roti, numit **ControlMecanumDrive**
 
 *Pasul 1*\
