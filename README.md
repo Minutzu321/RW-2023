@@ -6,6 +6,10 @@ Acesta este un SDK customizat construit pe baza SDK-ului de la FTC, cu rolul de 
 
 
 ## :notebook_with_decorative_cover: Cuprins
+- [Basics](https://github.com/Minutzu321/RW-2023#beginner-basics)
+  - [RWRobot - clase principale](https://github.com/Minutzu321/RW-2023#arrow_right-rwrobotjava)
+  - [RWConfig - variabile](https://github.com/Minutzu321/RW-2023#arrow_right-rwconfigjava)
+  - [Telemetrie](https://github.com/Minutzu321/RW-2023#arrow_right-telemetrie)
 - [Drive](https://github.com/Minutzu321/RW-2023#cum-fac-un-drive--exemplu-drive)
   - [Cum fac un drive](https://github.com/Minutzu321/RW-2023#tutorial-pas-cu-pas)
   - [Exemplu](https://github.com/Minutzu321/RW-2023#exemplu-cod-drive)
@@ -105,8 +109,8 @@ Cautam secventa asta de cod in clasa mentionata mai sus
 ```java
 //Adauga numele noului tau drive
 enum DriveType{
-  MECANUM,
-  //AICI ADAUGI NUMELE
+    MECANUM,
+    //AICI ADAUGI NUMELE
 }
 ```
 si adaugam un nume care va reprezenta drive-ul nostru\
@@ -117,9 +121,9 @@ In cazul meu, numele este **EXEMPLU**
 ```java
 //Adauga numele noului tau drive
 enum DriveType{
-  MECANUM,
-  EXEMPLU,
-  //AICI ADAUGI ALT NUME
+    MECANUM,
+    EXEMPLU,
+    //AICI ADAUGI ALT NUME
 }
 ```
 Acum practic ce am facut a fost sa adaugam inca o posibilitate de drive
@@ -135,23 +139,23 @@ import org.firstinspires.ftc.teamcode.mina.events.RWEvent;
 
 public class ExempluDrive extends Drive {
 
-  public ExempluDrive() {
-    //Aici argumentul de la super() trebuie sa fie numele
-    //pe care l-ai adaugat in pasul anterior
-    super(DriveType.EXEMPLU);
-  }
+    public ExempluDrive() {
+        //Aici argumentul de la super() trebuie sa fie numele
+        //pe care l-ai adaugat in pasul anterior
+        super(DriveType.EXEMPLU);
+    }
 
-  @Override
-  public void onInit() {
-    //Functia asta se cheama cand se apasa butonul de INIT
-    //Aici initializezi variabilele
-  }
+    @Override
+    public void onInit() {
+        //Functia asta se cheama cand se apasa butonul de INIT
+        //Aici initializezi variabilele
+    }
 
-  @Override
-  public void onEvent(RWEvent event) {
-    //Functia asta se cheama cand se observa
-    //un event de catre Listeneri
-  }
+    @Override
+    public void onEvent(RWEvent event) {
+        //Functia asta se cheama cand se observa
+        //un event de catre Listeneri
+    }
 }
 ```
 :white_check_mark:**Pasul 3 - Inregistreaza clasa in RWRobot**\
@@ -171,7 +175,7 @@ In cazul meu, este ```drives.add(new ExempluDrive());```
 ```java
 //ADAUGATI AICI DRIVERELE PE CARE LE CREATI
 drives.add(new ControlMecanumDrive());
-        drives.add(new ExempluDrive());
+drives.add(new ExempluDrive());
 ```
 Ce a facut ultimul pas a fost sa adauge Drive-ul pe lista care este updatata de programul principal.\
 Fara acest pas, clasa noastra nu este luata in considerare cand se intampla un event sau se initializeaza robotul.
