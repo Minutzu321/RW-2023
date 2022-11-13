@@ -90,7 +90,7 @@ drives.add(new ControlMecanumDrive());
 ```
 Ce a facut ultimul pas a fost sa adauge Drive-ul pe lista care este updatata de programul principal.\
 Fara acest pas, clasa noastra nu este luata in considerare cand se intampla un event sau se initializeaza robotul.
-### Exemplu
+### Exemplu cod Drive
 Un exemplu este drive-ul pentru roti, numit **ControlMecanumDrive**
 
 *Pasul 1*\
