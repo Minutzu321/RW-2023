@@ -11,7 +11,7 @@ Acesta este un SDK customizat construit pe baza SDK-ului de la FTC, cu rolul de 
   - [RWConfig - variabile](https://github.com/Minutzu321/RW-2023#arrow_right-rwconfigjava)
   - [Telemetrie](https://github.com/Minutzu321/RW-2023#arrow_right-telemetrie)
 - [Drive](https://github.com/Minutzu321/RW-2023#interrobang-cum-fac-un-drive--exemplu-drive)
-  - [Tutorial pas cu pas](https://github.com/Minutzu321/RW-2023#star-tutorial-pas-cu-pass)
+  - [Tutorial pas cu pas](https://github.com/Minutzu321/RW-2023#star-tutorial-pas-cu-pas)
   - [Exemplu in cod](https://github.com/Minutzu321/RW-2023#star2-exemplu-cod-drive)
 
 ## :beginner: Basics
