@@ -10,9 +10,9 @@ Acesta este un SDK customizat construit pe baza SDK-ului de la FTC, cu rolul de 
   - [RWRobot - clase principale](https://github.com/Minutzu321/RW-2023#arrow_right-rwrobotjava)
   - [RWConfig - variabile](https://github.com/Minutzu321/RW-2023#arrow_right-rwconfigjava)
   - [Telemetrie](https://github.com/Minutzu321/RW-2023#arrow_right-telemetrie)
-- [Drive](https://github.com/Minutzu321/RW-2023#cum-fac-un-drive--exemplu-drive)
-  - [Cum fac un drive](https://github.com/Minutzu321/RW-2023#tutorial-pas-cu-pas)
-  - [Exemplu](https://github.com/Minutzu321/RW-2023#exemplu-cod-drive)
+- [Drive](https://github.com/Minutzu321/RW-2023#interrobang-cum-fac-un-drive--exemplu-drive)
+  - [Tutorial pas cu pas](https://github.com/Minutzu321/RW-2023#star-tutorial-pas-cu-pass)
+  - [Exemplu in cod](https://github.com/Minutzu321/RW-2023#star2-exemplu-cod-drive)
 
 ## :beginner: Basics
 
