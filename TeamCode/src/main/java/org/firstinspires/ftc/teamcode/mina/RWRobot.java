@@ -39,6 +39,7 @@ public class RWRobot {
 
         mecanumDrive = new SampleMecanumDrive(opMode.hardwareMap);
 
+        //ADAUGATI AICI DRIVERELE PE CARE LE CREATI
         drives.add(new ControlMecanumDrive());
 
         for(Drive d : drives){

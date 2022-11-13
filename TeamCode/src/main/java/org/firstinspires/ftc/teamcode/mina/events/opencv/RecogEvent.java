@@ -6,6 +6,8 @@ import java.util.List;
 
 public abstract class RecogEvent extends RWEvent {
 
+    //las clasa asta aici in caz ca va mai fi nevoie de ea in viitor
+
     public enum RecogType{
         CON_RECOG,
         TAG_RECOG;

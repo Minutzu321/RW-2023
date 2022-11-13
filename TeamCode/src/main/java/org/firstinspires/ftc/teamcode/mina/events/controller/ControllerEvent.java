@@ -24,7 +24,7 @@ public abstract class ControllerEvent extends RWEvent {
 
     public abstract String getInfo();
 
-    public boolean eButon(){
+    public boolean eButonType(){
         return controllereventtype == ControllerEventType.BUTON;
     }
 
@@ -32,7 +32,7 @@ public abstract class ControllerEvent extends RWEvent {
         return (ButonEvent) this;
     }
 
-    public boolean eStick(){
+    public boolean eStickType(){
         return controllereventtype == ControllerEventType.STICK;
     }
 
@@ -40,7 +40,7 @@ public abstract class ControllerEvent extends RWEvent {
         return (StickEvent) this;
     }
 
-    public boolean eTrigger(){
+    public boolean eTriggerType(){
         return controllereventtype == ControllerEventType.TRIGGER;
     }
 

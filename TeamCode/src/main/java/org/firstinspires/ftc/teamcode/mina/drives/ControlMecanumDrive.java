@@ -12,7 +12,7 @@ public class ControlMecanumDrive extends Drive {
 
     public float x, y, r;
 
-    public ControlMecanumDrive(){
+    public ControlMecanumDrive() {
         super(DriveType.MECANUM);
     }
 
@@ -26,18 +26,20 @@ public class ControlMecanumDrive extends Drive {
 
     @Override
     public void onEvent(RWEvent event) {
-        if(event.eController()){
-            ControllerEvent controllerEvent = event.getControllerEvent();
-            if(controllerEvent.eController1() && controllerEvent.eStick()){
-                StickEvent stickEvent = controllerEvent.getStickEvent();
-                if(stickEvent.eSTANGA()){
-                    x = stickEvent.x;
-                    y = stickEvent.y;
-                }else{
-                    r = stickEvent.x;
-                }
-                RWRobot.mecanumDrive.setWeightedDrivePower(new Pose2d(-x, -y, -r));
+        StickEvent stickEvent = event.getStickEvent();
+        // !!! ATENTIE
+        // Daca evenimentul NU este StickEvent, variabila de mai sus este
+        // NULL deci trebuie verificata conditia mereu.
+        // Chestia asta se aplica la orice event!!!!
+        // !!! ATENTIE
+        if (stickEvent != null && stickEvent.eController1()) {
+            if (stickEvent.eSTANGA()) {
+                x = stickEvent.x;
+                y = stickEvent.y;
+            } else {
+                r = stickEvent.x;
             }
+            RWRobot.mecanumDrive.setWeightedDrivePower(new Pose2d(-x, -y, -r));
         }
     }
 }
