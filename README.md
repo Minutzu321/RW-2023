@@ -7,8 +7,8 @@ Acesta este un SDK customizat construit pe baza SDK-ului de la FTC, cu rolul de 
 
 ##  Cuprins
 - [Drive](https://github.com/Minutzu321/RW-2023#cum-fac-un-drive--exemplu-drive)
-    - [Cum fac un drive](https://github.com/Minutzu321/RW-2023#tutorial-pas-cu-pas)
-    - [Exemplu](https://github.com/Minutzu321/RW-2023#exemplu-cod-drive)
+  - [Cum fac un drive](https://github.com/Minutzu321/RW-2023#tutorial-pas-cu-pas)
+  - [Exemplu](https://github.com/Minutzu321/RW-2023#exemplu-cod-drive)
 ## Cum fac un Drive / Exemplu Drive
 Partea principala a codului este Drive-ul.
 Un "Drive" reprezinta o parte functionala a robotului.
@@ -17,7 +17,7 @@ Un "Drive" reprezinta o parte functionala a robotului.
 **Cum fac un Drive??**\
 Pentru a face un "Drive", trebuie urmati 3 pasi principali:
 
-**Pasul 1 - Adauga un nou tip de drive in clasa Drive**\
+** :white_check_mark: Pasul 1 - Adauga un nou tip de drive in clasa Drive**\
 *Locatia clasei: 'org.firstinspires.ftc.teamcode.mina.drives.Drive'*\
 [Click pentru locatie](https://github.com/Minutzu321/RW-2023/blob/e1d5873c4ee91f2fa9173ecd605cee3647ec1929/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mina/drives/Drive.java#L10)
 
@@ -103,8 +103,8 @@ Un exemplu este drive-ul pentru roti, numit **ControlMecanumDrive**
 [Click pentru locatie](https://github.com/Minutzu321/RW-2023/blob/e1d5873c4ee91f2fa9173ecd605cee3647ec1929/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mina/drives/Drive.java#L9)
 ```java
 enum DriveType{
-    MECANUM,
-    //AICI ADAUGI ALT NUME
+  MECANUM,
+  //AICI ADAUGI ALT NUME
 }
 ```
 
@@ -123,44 +123,44 @@ import org.firstinspires.ftc.teamcode.mina.events.controller.StickEvent;
 
 public class ControlMecanumDrive extends Drive {
 
-    //Variabilele pentru puteri
-    public float x, y, r;
+  //Variabilele pentru puteri
+  public float x, y, r;
 
-    //Constructorul clasei
-    //Trebuie pasat mereu tipul Driveului
-    //se gaseste in clasa Drive din packageul drives
-    public ControlMecanumDrive() {
-        super(DriveType.MECANUM);
-    }
+  //Constructorul clasei
+  //Trebuie pasat mereu tipul Driveului
+  //se gaseste in clasa Drive din packageul drives
+  public ControlMecanumDrive() {
+    super(DriveType.MECANUM);
+  }
 
-    //Aici te asiguri ca totul este pregatit cand se apasa pe butonul de init
-    @Override
-    public void onInit() {
-        x = 0;
-        y = 0;
-        r = 0;
-    }
+  //Aici te asiguri ca totul este pregatit cand se apasa pe butonul de init
+  @Override
+  public void onInit() {
+    x = 0;
+    y = 0;
+    r = 0;
+  }
 
-    //Aici este functia centrala.
-    //Prin ea se paseaza evenimentele detectate de listeneri
-    @Override
-    public void onEvent(RWEvent event) {
-        StickEvent stickEvent = event.getStickEvent();
-        // !!! ATENTIE
-        // Daca evenimentul NU este StickEvent, variabila de mai sus este
-        // NULL deci trebuie verificata conditia mereu.
-        // Chestia asta se aplica la orice event!!!!
-        // !!! ATENTIE
-        if (stickEvent != null && stickEvent.eController1()) {
-            if (stickEvent.eSTANGA()) {
-                x = stickEvent.x;
-                y = stickEvent.y;
-            } else {
-                r = stickEvent.x;
-            }
-            RWRobot.mecanumDrive.setWeightedDrivePower(new Pose2d(-x, -y, -r));
-        }
+  //Aici este functia centrala.
+  //Prin ea se paseaza evenimentele detectate de listeneri
+  @Override
+  public void onEvent(RWEvent event) {
+    StickEvent stickEvent = event.getStickEvent();
+    // !!! ATENTIE
+    // Daca evenimentul NU este StickEvent, variabila de mai sus este
+    // NULL deci trebuie verificata conditia mereu.
+    // Chestia asta se aplica la orice event!!!!
+    // !!! ATENTIE
+    if (stickEvent != null && stickEvent.eController1()) {
+      if (stickEvent.eSTANGA()) {
+        x = stickEvent.x;
+        y = stickEvent.y;
+      } else {
+        r = stickEvent.x;
+      }
+      RWRobot.mecanumDrive.setWeightedDrivePower(new Pose2d(-x, -y, -r));
     }
+  }
 }
 ```
 
