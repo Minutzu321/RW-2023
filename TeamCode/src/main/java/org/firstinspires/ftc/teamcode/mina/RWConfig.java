@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.mina;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
@@ -29,6 +30,10 @@ public class RWConfig {
         sf = (DcMotorEx) hardwareMap.get("sf");
         ds = (DcMotorEx) hardwareMap.get("ds");
         df = (DcMotorEx) hardwareMap.get("df");
+
+        //REVERSE!!!
+        ds.setDirection(DcMotorSimple.Direction.REVERSE);
+        df.setDirection(DcMotorSimple.Direction.REVERSE);
 
 
 

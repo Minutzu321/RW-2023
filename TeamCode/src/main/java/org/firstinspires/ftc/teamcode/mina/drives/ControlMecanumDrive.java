@@ -45,7 +45,7 @@ public class ControlMecanumDrive extends Drive {
             } else {
                 r = stickEvent.x;
             }
-            RWRobot.mecanumDrive.setWeightedDrivePower(new Pose2d(-x, -y, -r));
+            getMecanum().setWeightedDrivePower(new Pose2d(-x, -y, -r));
         }
     }
 }

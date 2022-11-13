@@ -13,7 +13,8 @@ Un "Drive" reprezinta o parte functionala a robotului.
 Pentru a face un "Drive", trebuie urmati 3 pasi principali:
 
 **Pasul 1 - Adauga un nou tip de drive in clasa Drive**\
-*Locatia clasei: 'org.firstinspires.ftc.teamcode.mina.drives.Drive'*
+*Locatia clasei: 'org.firstinspires.ftc.teamcode.mina.drives.Drive'*\
+[Click pentru locatie](https://github.com/Minutzu321/RW-2023/blob/e1d5873c4ee91f2fa9173ecd605cee3647ec1929/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mina/drives/Drive.java#L10)
 
 Cautam secventa asta de cod in clasa mentionata mai sus
 ```java
@@ -70,7 +71,8 @@ public class ExempluDrive extends Drive {
 ```
 **Pasul 3 - Inregistreaza clasa in RWRobot**\
 *Locatia clasei: 'org.firstinspires.ftc.teamcode.mina.RWRobot'*\
-*Secventa de cod este in functia **init** din RWRobot*
+*Secventa de cod este in functia **init** din RWRobot*\
+[Click pentru locatie](https://github.com/Minutzu321/RW-2023/blob/e1d5873c4ee91f2fa9173ecd605cee3647ec1929/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mina/RWRobot.java#L44)
 
 Cautam secventa asta folosind instructiunile date mai sus
 ```java
@@ -88,16 +90,17 @@ drives.add(new ExempluDrive());
 ```
 Ce a facut ultimul pas a fost sa adauge Drive-ul pe lista care este updatata de programul principal.\
 Fara acest pas, clasa noastra nu este luata in considerare cand se intampla un event sau se initializeaza robotul.
-### Exemplu din cod
-Un exemplu folosit in cod este drive-ul pentru roti, numit **ControlMecanumDrive**
+### Exemplu
+Un exemplu este drive-ul pentru roti, numit **ControlMecanumDrive**
 
 *Pasul 1*\
-*Locatie: **org.firstinspires.ftc.teamcode.mina.drives.Drive***
+*Locatie: **org.firstinspires.ftc.teamcode.mina.drives.Drive***\
+[Click pentru locatie](https://github.com/Minutzu321/RW-2023/blob/e1d5873c4ee91f2fa9173ecd605cee3647ec1929/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mina/drives/Drive.java#L9)
 ```java
 enum DriveType{
-        MECANUM,
-        //AICI ADAUGI ALT NUME
-    }
+    MECANUM,
+    //AICI ADAUGI ALT NUME
+}
 ```
 
 *Pasul 2*\
@@ -157,7 +160,8 @@ public class ControlMecanumDrive extends Drive {
 ```
 
 *Pasul 3*\
-*Locatie: **org.firstinspires.ftc.teamcode.mina.RWRobot***
+*Locatie: **org.firstinspires.ftc.teamcode.mina.RWRobot***\
+[Click pentru locatie](https://github.com/Minutzu321/RW-2023/blob/e1d5873c4ee91f2fa9173ecd605cee3647ec1929/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mina/RWRobot.java#L44)
 ```java
 //ADAUGATI AICI DRIVERELE PE CARE LE CREATI
 drives.add(new ControlMecanumDrive());

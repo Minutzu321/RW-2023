@@ -8,7 +8,6 @@ import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.mina.camera.RWOpenCV;
 import org.firstinspires.ftc.teamcode.mina.drives.Drive;
 import org.firstinspires.ftc.teamcode.mina.drives.ControlMecanumDrive;
-import org.firstinspires.ftc.teamcode.mina.drives.ExempluDrive;
 import org.firstinspires.ftc.teamcode.mina.events.StartEvent;
 import org.firstinspires.ftc.teamcode.mina.events.StopEvent;
 import org.firstinspires.ftc.teamcode.mina.listeners.ControllerListener;
@@ -42,7 +41,6 @@ public class RWRobot {
 
         //ADAUGATI AICI DRIVERELE PE CARE LE CREATI
         drives.add(new ControlMecanumDrive());
-        drives.add(new ExempluDrive());
 
         for(Drive d : drives){
             d.onInit();
