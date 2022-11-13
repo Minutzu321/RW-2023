@@ -86,7 +86,7 @@ In cazul meu, este ```drives.add(new ExempluDrive());```
 ```java
 //ADAUGATI AICI DRIVERELE PE CARE LE CREATI
 drives.add(new ControlMecanumDrive());
-drives.add(new ExempluDrive());
+        drives.add(new ExempluDrive());
 ```
 Ce a facut ultimul pas a fost sa adauge Drive-ul pe lista care este updatata de programul principal.\
 Fara acest pas, clasa noastra nu este luata in considerare cand se intampla un event sau se initializeaza robotul.
@@ -161,7 +161,7 @@ public class ControlMecanumDrive extends Drive {
 
 *Pasul 3*\
 *Locatie: **org.firstinspires.ftc.teamcode.mina.RWRobot***\
-[Click pentru locatie](https://github.com/Minutzu321/RW-2023/blob/e1d5873c4ee91f2fa9173ecd605cee3647ec1929/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mina/RWRobot.java#L44)
+[Click pentru locatie](https://github.com/Minutzu321/RW-2023/blob/b530e5d63ed20db44ad23866aac2b11731ae83aa/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mina/RWRobot.java#L43)
 ```java
 //ADAUGATI AICI DRIVERELE PE CARE LE CREATI
 drives.add(new ControlMecanumDrive());
