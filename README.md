@@ -94,7 +94,7 @@ Telemetrie.addTel(Telemetrie.TelType.WARN, "TITLU", lista_mesaje");
 //sau telemetrie de tip ERROR(apare inaintea telemetriei de tip warning si a celei simple) cu un mesaj
 Telemetrie.addTel(Telemetrie.TelType.ERR, "TITLU", "MESAJ");
 //sau telemetrie de tip ERROR(apare inaintea telemetriei de tip warning si a celei simple) cu o lista de mesaje
-Telemetrie.addTel(Telemetrie.TelType.ERR, "TITLU", lista_mesaje");
+Telemetrie.addTel(Telemetrie.TelType.ERR, "TITLU", lista_mesaje);
 ```
 ## :interrobang: Cum fac un Drive / Exemplu Drive
 Partea principala a codului este Drive-ul.
@@ -187,8 +187,8 @@ Un exemplu este drive-ul pentru roti, numit **ControlMecanumDrive**
 [Click pentru locatie](https://github.com/Minutzu321/RW-2023/blob/e1d5873c4ee91f2fa9173ecd605cee3647ec1929/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mina/drives/Drive.java#L9)
 ```java
 enum DriveType{
-  MECANUM,
-  //AICI ADAUGI ALT NUME
+    MECANUM,
+    //AICI ADAUGI ALT NUME
 }
 ```
 
@@ -242,7 +242,7 @@ public class ControlMecanumDrive extends Drive {
       } else {
         r = stickEvent.x;
       }
-      RWRobot.mecanumDrive.setWeightedDrivePower(new Pose2d(-x, -y, -r));
+      getMecanum().setWeightedDrivePower(new Pose2d(-x, -y, -r));
     }
   }
 }
@@ -255,3 +255,114 @@ public class ControlMecanumDrive extends Drive {
 //ADAUGATI AICI DRIVERELE PE CARE LE CREATI
 drives.add(new ControlMecanumDrive());
 ```
+## :sparkles: Eventuri
+Un event este o clasa cu mai multe proprietati care este pasata prin functia ```onEvent(RWEvent event)``` a oricarui [Drive](https://github.com/Minutzu321/RW-2023#interrobang-cum-fac-un-drive--exemplu-drive)\
+```java
+@Override
+public void onEvent(RWEvent event) {
+    //Aplica aici logica in functie de event
+}
+```
+Exista 4 tipuri de eventuri, unul dintre ele insa se ramifica.
+- ```StartEvent``` care apare cand este apasat butonul de start
+  - Aici e folositoare urmatoarea secventa pentru a ne da seama ce tip de program a pornit([Vezi clasa StartEvent](https://github.com/Minutzu321/RW-2023/blob/master/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/mina/events/StartEvent.java))
+  - :exclamation: Totusi, a se tine cont de faptul ca poti accesa oricand tipul de program inceput prin ```RWRobot.startType``` fara sa mai faci toata povestea de mai jos
+    ```java
+    @Override
+    public void onEvent(RWEvent event) {
+        StartEvent startEvent = event.getStartEvent();
+        //In cazul in care tipul de event NU e start, varabila de mai sus e nula
+        if(startEvent != null){
+            switch (startEvent.startType){
+                case CONTROL:
+                    //Aplica logica sau asigura niste variabile sau clase cand incepe perioada controlata
+                    break;
+                case AUTONOMIE_ROSU_STANGA:
+                    //Aplica logica sau asigura niste variabile sau clase cand incepe perioada autonoma pe Rosu Stanga
+                    break;
+                case AUTONOMIE_ROSU_DREAPTA:
+                    // ca mai sus
+                    break;
+                case AUTONOMIE_ALBASTRU_STANGA:
+                    // etc
+                    break;
+                case AUTONOMIE_ALBASTRU_DREAPTA:
+                    // etc
+                    break;
+            }
+        }
+    }
+    ```
+
+- ```StopEvent``` care apare cand se apasa butonul de stop.
+- ```AprilEvent``` care apare cand se detecteaza un AprilTag sau cand AprilTag-ul detectat dispare
+    ```java
+    @Override
+    public void onEvent(RWEvent event) {
+        AprilEvent aprilEvent = event.getAprilEvent();
+        //Daca evenimentul nu e AprilEvent, variabila de mai sus e nula!
+        if(aprilEvent != null){
+            int id = aprilEvent.getId();
+            if(id == -1){
+                //TAGUL A DISPARUT
+            }else{
+                //TAGUL A FOST DETECTAT CU ID-UL DE MAI SUS
+            }
+        }
+    }
+    ```
+- ```ControllerEvent``` care apare atunci cand se intampla o schimbare la controller
+  - Fiecare clasa de mai jos va avea functiile ```eController1``` si ```eController2``` pentru a face diferenta intre controllere
+  - ```ButonEvent``` pentru butoane(X, Y, A, B, BUMPER, DPAD, etc)
+    ```java
+    @Override
+    public void onEvent(RWEvent event) {
+        ButonEvent butonEvent = event.getButonEvent();
+        //Daca evenimentul nu e ButonEvent, variabila de mai sus e nula!
+        if(butonEvent != null){
+            if(butonEvent.eController1() && butonEvent.eA()){
+                if(butonEvent.apasat){
+                    //BUTONUL `A` DE PE CONTROLLERUL 2 A FOST APASAT
+                }else{
+                    //BUTONUL `A` DE PE CONTROLLERUL 2 NU MAI E APASAT
+                }
+            }
+        }
+    }
+    ```
+  - ```StickEvent``` care apare atunci cand se misca un joystick
+    ```java
+    @Override
+    public void onEvent(RWEvent event) {
+        StickEvent stickEvent = event.getStickEvent();
+        // !!! ATENTIE
+        // Daca evenimentul NU este StickEvent, variabila de mai sus este
+        // NULL deci trebuie verificata conditia mereu.
+        // !!! ATENTIE
+        if (stickEvent != null && stickEvent.eController1()) {
+            if (stickEvent.eSTANGA()) {
+                x = stickEvent.x;
+                y = stickEvent.y;
+            } else {
+                r = stickEvent.x;
+            }
+            //Daca joystick-ul din stanga de pe controllerul 1 e miscat, se schimba puterile la roti
+            //se iau valorile in variabilele GLOBALE si se paseaza la roti
+            getMecanum().setWeightedDrivePower(new Pose2d(-x, -y, -r));
+        }
+    }
+    ```
+  - ```TriggerEvent``` care apare atunci cand se misca un joystick
+    ```java
+    @Override
+    public void onEvent(RWEvent event) {
+        TriggerEvent triggerEvent = event.getTriggerEvent();
+        if (triggerEvent != null && triggerEvent.eController1() && triggerEvent.eSTANGA()) {
+            if(triggerEvent.v >= 0.5){
+                //TRIGGERUL DIN STANGA DE PE CONTROLLERUL 1 E APASAT MAI MULT DE 50%
+            }else{
+                //TRIGGERUL DIN STANGA DE PE CONTROLLERUL 1 E APASAT MAI PUTIN DE 50%
+            }
+        }
+    }
+    ```

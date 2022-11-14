@@ -5,9 +5,11 @@ import com.acmerobotics.roadrunner.geometry.Pose2d;
 
 import org.firstinspires.ftc.teamcode.mina.RWRobot;
 import org.firstinspires.ftc.teamcode.mina.events.RWEvent;
+import org.firstinspires.ftc.teamcode.mina.events.controller.ButonEvent;
 import org.firstinspires.ftc.teamcode.mina.events.controller.ControllerEvent;
 import org.firstinspires.ftc.teamcode.mina.events.controller.StickEvent;
-import org.firstinspires.ftc.teamcode.mina.utils.Telemetrie;
+import org.firstinspires.ftc.teamcode.mina.events.controller.TriggerEvent;
+import org.firstinspires.ftc.teamcode.mina.events.opencv.AprilEvent;
 
 public class ControlMecanumDrive extends Drive {
 
@@ -33,6 +35,16 @@ public class ControlMecanumDrive extends Drive {
     //Prin ea se paseaza evenimentele detectate de listeneri
     @Override
     public void onEvent(RWEvent event) {
+        TriggerEvent triggerEvent = event.getTriggerEvent();
+        if (triggerEvent != null && triggerEvent.eController1() && triggerEvent.eSTANGA()) {
+            if(triggerEvent.v >= 0.5){
+                //TRIGGERUL DIN STANGA DE PE COMTROLLERUL 1 E APASAT MAI MULT DE 50%
+            }else{
+                //TRIGGERUL DIN STANGA DE PE COMTROLLERUL 1 E APASAT MAI PUTIN DE 50%
+            }
+        }
+
+
         StickEvent stickEvent = event.getStickEvent();
         // !!! ATENTIE
         // Daca evenimentul NU este StickEvent, variabila de mai sus este
