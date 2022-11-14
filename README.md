@@ -13,7 +13,7 @@ Acesta este un SDK customizat construit pe baza SDK-ului de la FTC, cu rolul de 
 - [Drive](https://github.com/Minutzu321/RW-2023#interrobang-cum-fac-un-drive--exemplu-drive)
   - [Tutorial pas cu pas](https://github.com/Minutzu321/RW-2023#star-tutorial-pas-cu-pas)
   - [Exemplu in cod](https://github.com/Minutzu321/RW-2023#star2-exemplu-cod-drive)
-
+- [Eventuri](https://github.com/Minutzu321/RW-2023#sparkles-eventuri)
 ## :beginner: Basics
 
 ### :arrow_right: RWRobot.java
@@ -256,6 +256,7 @@ public class ControlMecanumDrive extends Drive {
 drives.add(new ControlMecanumDrive());
 ```
 ## :sparkles: Eventuri
+### :monkey: Tutorial eventuri
 Un event este o clasa cu mai multe proprietati care este pasata prin functia ```onEvent(RWEvent event)``` a oricarui [Drive](https://github.com/Minutzu321/RW-2023#interrobang-cum-fac-un-drive--exemplu-drive)\
 ```java
 @Override
@@ -366,3 +367,80 @@ Exista 4 tipuri de eventuri, unul dintre ele insa se ramifica.
         }
     }
     ```
+### :sparkler: Tutorial eventuri combinate
+Bineinteles ca puteti combina eventurile intr-o singura functie
+```java
+@Override
+public void onEvent(RWEvent event) {
+    StartEvent startEvent = event.getStartEvent();
+    //In cazul in care tipul de event NU e start, varabila de mai sus e nula
+    if(startEvent != null){
+        switch (startEvent.startType){
+            case CONTROL:
+                //Aplica logica sau asigura niste variabile sau clase cand incepe perioada controlata
+                break;
+            case AUTONOMIE_ROSU_STANGA:
+                //Aplica logica sau asigura niste variabile sau clase cand incepe perioada autonoma pe Rosu Stanga
+                break;
+            case AUTONOMIE_ROSU_DREAPTA:
+                // ca mai sus
+                break;
+            case AUTONOMIE_ALBASTRU_STANGA:
+                // etc
+                break;
+            case AUTONOMIE_ALBASTRU_DREAPTA:
+                // etc
+                break;
+        }
+    }
+
+    AprilEvent aprilEvent = event.getAprilEvent();
+    //Daca evenimentul nu e AprilEvent, variabila de mai sus e nula!
+    if(aprilEvent != null){
+        int id = aprilEvent.getId();
+        if(id == -1){
+            //TAGUL A DISPARUT
+        }else{
+            //TAGUL A FOST DETECTAT CU ID-UL DE MAI SUS
+        }
+    }
+
+    ButonEvent butonEvent = event.getButonEvent();
+    //Daca evenimentul nu e ButonEvent, variabila de mai sus e nula!
+    if(butonEvent != null){
+        if(butonEvent.eController1() && butonEvent.eA()){
+            if(butonEvent.apasat){
+                //BUTONUL `A` DE PE CONTROLLERUL 2 A FOST APASAT
+            }else{
+                //BUTONUL `A` DE PE CONTROLLERUL 2 NU MAI E APASAT
+            }
+        }
+    }
+
+    StickEvent stickEvent = event.getStickEvent();
+    // !!! ATENTIE
+    // Daca evenimentul NU este StickEvent, variabila de mai sus este
+    // NULL deci trebuie verificata conditia mereu.
+    // !!! ATENTIE
+    if (stickEvent != null && stickEvent.eController1()) {
+        if (stickEvent.eSTANGA()) {
+            x = stickEvent.x;
+            y = stickEvent.y;
+        } else {
+            r = stickEvent.x;
+        }
+        //Daca joystick-ul din stanga de pe controllerul 1 e miscat, se schimba puterile la roti
+        //se iau valorile in variabilele GLOBALE si se paseaza la roti
+        getMecanum().setWeightedDrivePower(new Pose2d(-x, -y, -r));
+    }
+
+    TriggerEvent triggerEvent = event.getTriggerEvent();
+    if (triggerEvent != null && triggerEvent.eController1() && triggerEvent.eSTANGA()) {
+        if(triggerEvent.v >= 0.5){
+            //TRIGGERUL DIN STANGA DE PE CONTROLLERUL 1 E APASAT MAI MULT DE 50%
+        }else{
+            //TRIGGERUL DIN STANGA DE PE CONTROLLERUL 1 E APASAT MAI PUTIN DE 50%
+        }
+    }
+}
+```
